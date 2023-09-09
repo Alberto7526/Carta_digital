@@ -1,0 +1,56 @@
+____________________________________________________________________________________________
+
+Creamos nuestro proyeto en Django
+
+1. Creamos el ambiente virtual 
+
+>> python -m venv icard-venv
+
+2. una vez tengamos activado el mbiente virtual instalamos django 
+
+>> pip install django
+
+3. ahora creramos muestro proyecto de django 
+
+>> django-admin startproject icard
+
+4. ahora instalamos django rest framework y lo agregamos en el archivo setting.py en aplicaciones instaladas 
+de terceros
+
+ >> pip install djangorestframework
+
+5. Vamos a generar la documentación automatica para lo que necesitamos instalar drf-yasg, al igual que con django rest framework lo instalamos y lo colocamos en las aplicaciones instaladas
+
+>>  pip install -U drf-yasg
+
+Vamos a la documentación en usage en instalación link: https://drf-yasg.readthedocs.io/en/stable/readme.html#installation y editamos el archivo urls.py del settings, antes de hacer esto ya debemos haber generado ejecutado las migraciones 
+
+ >> python manage.py migrate
+
+__________________________________________________________________________________________
+
+Creamos nuestro proyecto en React 
+
+1. Crear nuestro proyecto de React ejecutando la siguiente linea desde la capeta del protyecto al mismo nivel que la carpeta de django 
+
+>> npm create vite@latest icard
+>> cd icard
+>> npm install
+>> npm run dev
+
+2. instalamos en React el paquete que nos va permitir utilizar varios componentes que nos permitira desarrollar el panel de afministrador y la app de los clientes responsive, vamos a la documetnación link: https://react.semantic-ui.com/usage e instalamos el paquete 
+
+>> npm install semantic-ui-react semantic-ui-css
+
+Luego de ello vamos a configurar el fronted en la carpeta src agregamos la linea 
+import 'semantic-ui-css/semantic.min.css'  en el archivo main.jsx 
+
+3. Ahora vamos a configurar SASS que es mejor que css instalamos sass 
+
+>> npm install -D sass
+
+
+
+
+
+

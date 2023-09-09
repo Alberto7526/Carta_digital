@@ -1,0 +1,27 @@
+Para configurar el sistema de rutas en React se debe hacer lo siguietne 
+
+1. incialmente se debe instalar react-router-dom
+
+>> npm install react-router-dom
+
+2. dentro de la carptea src se deben crear la carpeta routes y dentro de ella crear y configurar los archivos 
+
+- index.jsx
+- Navigation.jsx
+- routes.client.jsx 
+- routes.admin.jsx
+- routes.jsx 
+
+3. Sistema de layouts para que la parte del cliente y la parte delk administrador se vean de dos manera diferentes, creamos las carpetas layout y dentro de ella los admin y client que es donde se va alojar toda las vistas de cada sección del proyecto.
+
+4. Ahora generamos la carpeta de pages y configuramos las primeras paginas .jsx con sus respectivos index.jsx
+
+5. Configuramos las rutas de routes.admin.jsx y routes.client.jsx
+
+
+
+
+
+
+
+
