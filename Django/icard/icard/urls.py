@@ -1,8 +1,10 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 # importaciones para la documentación automatica
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+
+from apps.users.api.router import router_user
 
 # generamos el esquema para la documentación 
 
@@ -28,4 +30,8 @@ urlpatterns = [
     path('redocs/', 
          schema_view.with_ui('redoc', cache_timeout=0),
          name='schema-redoc'),
+    path('api/', 
+         include(router_user.urls)),
+    path('api/',
+         include('apps.users.api.router'))
 ]

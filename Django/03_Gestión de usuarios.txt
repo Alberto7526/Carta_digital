@@ -1,0 +1,18 @@
+Ahora vamos a configurar loa usuarios
+
+1. Inicialmnente vamos a crear un super usuario para el aadministrados de django 
+
+>> python manage.py createsuperuser
+
+2. Para configuarar el usuario y que este ingrese por el email se debe modificar el modelo de el usuario 
+
+- creamos la app de usuarios y el modulo user dentro de la carpeta apps
+
+>>python ../manage.py startapp users 
+
+- configuramos los archivos apps y admin dentro de la app 
+
+Nota: Se debe crear el superuser antes de modificar al campo email en models, pero antes de crear el superuser se debe hacer la migraciones 
+
+>> python manage.py makemigrations
+>> python manage.py migrate

@@ -1,3 +1,4 @@
+import datetime
 from pathlib import Path
 import os 
 
@@ -9,7 +10,9 @@ SECRET_KEY='django-insecure-6alb(%%e_06z9=m1mqn)uj1(jh9yp5exugq#f5=ba5hig^d(f='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1',
+                 'http://127.0.0.1:8000',
+                 'localhost']
 
 
 # para las aplicaciones django lee la lista INSTALLED_APPS por tanto la vamor a armar de 3 listas 
@@ -28,13 +31,15 @@ DJANGO_APPS = [
 # 2. Las apps que nosotros hagamos en nuestro proyecto las agregamos en la siguiente lista 
 
 PROJECT_APPS = [
+    'apps.users',
 ]
 
 # 2. Aplicaciones de terceros instaladas
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    'corsheaders',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -42,6 +47,7 @@ INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -68,6 +74,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'icard.wsgi.application'
+
+# para el login desde el front 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+
 
 
 # Database
@@ -123,3 +138,19 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# users 
+
+AUTH_USER_MODEL = 'users.User'
+
+# configuración de los cors 
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+
+# configuramos el tiempo de expiración del token 
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(hours=6)
+}

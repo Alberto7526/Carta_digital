@@ -1,0 +1,8 @@
+Vamos a crear un contexto para que cuando el usuario se loguee este se guarde ahí, promero creemos el contexto 
+
+1. creamos la carpeta context en la carpeta src y el archivo AithContext 
+2. una vez configurado lo importamos en nuestro archivo app.jsx y emvolvemos nuestra app con ese conexto 
+
+Ahora para acceder a los datos de nuestra app pasamos hacer lo soguiente 
+
+1. Creamos un custom hook  para que maneje el contexto en la carpeta Hooks, los hooks siempre inician con la palabra reservada use en este caso useAuth
