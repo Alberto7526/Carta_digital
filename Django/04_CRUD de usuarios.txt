@@ -1,0 +1,10 @@
+Para crear el CRUD, para que desde el front se pueda gestionar usuarios 
+
+1. Creamos dentro de la app users la carpeta api con su __init__.py 
+Dentro de la carpeta API creamos y configuramos los archivos 
+
+- views
+- serializers
+- router 
+
+Dentro de ellos se definen el CRUD de usuarios y las respuectivas rutas, tambien se modifica en icard el archivo urls para definir todas las rutas de manera global
