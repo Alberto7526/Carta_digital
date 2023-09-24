@@ -1,12 +1,17 @@
 import {AdminLayout} from "../layouts" // importamos los layouts 
-import {HomeAdmin} from "../pages/Admin" // importamos las paginas 
+import {HomeAdmin,UsersAdmin } from "../pages/Admin" // importamos las paginas 
 
 const routesAdmin = [
-    // definbimos la primera ruta dentro de un objeto {}
+    // definimos la primera ruta dentro de un objeto {}
     {
         path: "/admin",
         layout: AdminLayout,
         component: HomeAdmin
+    },
+    {
+        path: "/admin/users",
+        layout: AdminLayout,
+        component: UsersAdmin
     }
 ];
 
