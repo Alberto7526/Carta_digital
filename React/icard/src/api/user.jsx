@@ -22,19 +22,53 @@ export async function loginApi (formData) {
 
 
 export async function getMeApi (token){
+    /**
+     * Permite hacer una petición get para traer la información del usuario que se encuentra loqueado 
+     * inputs:
+     * token: token de autenticación ya que el backend solo responde a peticiones cuando esta logueado
+     * outputs:
+     * response: Datos del uusario logueado en un ibjeto .json
+     */
     try {
-        const url = `${BASE_API}/api/auth/me/`;
+        const url = `${BASE_API}/api/auth/me/`; // definimos la url 
         const params = {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token}` // enviamos como parametro el token 
             },
         }
 
-        const response = await fetch(url,params);
-        const result = await response.json()
+        const response = await fetch(url,params); // hacemos la petición y esperamos a que el backend responda 
+        const result = await response.json(); // obtemos un json con la infomarción entregada por el backend
         return result
         
     } catch (error) {
         throw new Error(error)
     }
 }
+
+export async function getUsersApi (token){
+    /**
+     * Realiza una petición get que trae la información o listado de todos los usuarios 
+     * inputs:
+     * token: token de autenticación
+     * outputs: 
+     * result: listado de usuarios existentes en la base de datos EN FORMATO JSON
+     */
+    try {
+        const url = `${BASE_API}/api/users/`; // definimos la url 
+        const params = {
+            headers: {
+                Authorization: `Bearer ${token}` // enviamos como parametro el token 
+            },
+        }
+
+        const response = await fetch(url,params); // hacemos la petición y esperamos a que el backend responda 
+        const result = await response.json(); // obtemos un json con la infomarción entregada por el backend
+        return result;
+        
+    } catch (error) {
+        throw new Error(error)
+    }
+
+}
+
